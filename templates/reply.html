@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>応答メッセージ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reply.css') }}">
+</head>
+<body>
+    <div class="reply-container">
+        <h1>メッセージが届きました！</h1>
+        <p>
+            <span class="name">{{ name }}</span> さん、
+            {{ greeting }}
+        </p>
+        <a href="{{ url_for('index') }}" class="back-button">戻る</a>
+    </div>
+</body>
+</html>

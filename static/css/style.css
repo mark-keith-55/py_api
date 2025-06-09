@@ -1,0 +1,114 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* グラデーション背景 */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+h1 {
+    color: #3f51b5; /* インディゴ */
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #495057;
+    font-weight: 500;
+}
+
+.form-group input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-group input[type="text"]:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.submit-button {
+    background-color: #007bff; /* シンプルな青色 */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #0056b3; /* 少し濃い青色 */
+    transform: translateY(-1px); /* さりげない上への移動 */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */ /* オプション: 影を追加 */
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.lang-toggle-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.lang-toggle-button {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin: 0 2px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    color: #495057;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-toggle-button.active {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    border-color: transparent;
+}
+
+.lang-toggle-button:not(.active):hover {
+    background-color: #e9ecef;
+}

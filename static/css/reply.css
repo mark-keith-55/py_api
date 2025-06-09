@@ -1,0 +1,60 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* グラデーション背景 (index.htmlと統一感を出すか、少し変える) */
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); /* indexと逆方向のグラデーション */
+    color: #495057;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.reply-container {
+    background-color: #ffffff; /* 白色 */
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reply-container h1 {
+    color: #5e35b1; /* ディープパープル系 */
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.reply-container p {
+    font-size: 1.3em;
+    color: #343a40;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.reply-container .name {
+    font-weight: bold;
+    color: #d81b60; /* ピンク系 */
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #6c757d; /* シンプルなグレー系 */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: #5a6268; /* 少し濃いグレー系 */
+    transform: translateY(-1px); /* さりげない上への移動 */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */ /* オプション: 影を追加 */
+}

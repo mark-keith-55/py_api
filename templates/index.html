@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>greeting app</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- 以下のボタンをJavaScriptで切り替えることができます。→ 要素の値を格納 -->
+        <div class="lang-toggle-container">
+            <button type="button" class="lang-toggle-button active" data-lang="ja">日本語</button>
+            <button type="button" class="lang-toggle-button" data-lang="en">English</button>
+        </div>
+
+        <!-- main -->
+        <h1>メッセージを入力</h1>
+        <!-- python codeの埋め込み -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/greet" method="post">
+            <input type="hidden" name="lang" id="selected_lang" value="ja">
+            <div class="form-group">
+                <label for="greeting">挨拶を入力:</label>
+                <input type="text" id="greeting" name="greeting" placeholder="例: こんにちは">
+            </div>
+            <div class="form-group">
+                <label for="name">お名前を入力:</label>
+                <input type="text" id="name" name="name" placeholder="例: 山田太郎">
+            </div>
+            <button type="submit" class="submit-button">送信</button>
+        </form>
+    </div>
+
+    <!-- JavaScriptの紹介 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const langButtons = document.querySelectorAll('.lang-toggle-button');
+            const selectedLangInput = document.getElementById('selected_lang');
+
+            langButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    selectedLangInput.value = this.dataset.lang;
+                });
+            });
+
+            const initiallyActiveButton = document.querySelector('.lang-toggle-button.active');
+            if (initiallyActiveButton) {
+                selectedLangInput.value = initiallyActiveButton.dataset.lang;
+            }
+        });
+    </script>
+</body>
+</html>
