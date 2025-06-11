@@ -1,0 +1,59 @@
+/* static/css/upload_style.css */
+
+/* ラベルのスタイル調整 */
+.form-group label[for="voice"] { /* HTMLの修正に合わせて for="voice" に */
+    display: block;
+    margin-bottom: .5rem; /* 8px */
+    font-weight: 500;
+    color: #333; /* より明確なラベル色 */
+}
+
+/* ファイルアップロード要素のスタイル */
+.form-group input[type="file"]#voice {
+    display: block;
+    width: 100%;
+    padding: 0.625rem 0.75rem; /* 10px 12px (ボタンの高さとファイル名表示領域のバランスを考慮) */
+    font-size: 1rem;   /* ファイル名テキストのフォントサイズ */
+    font-weight: 400;
+    line-height: 1.5;  /* input全体の高さを調整 */
+    color: #495057;    /* ファイル名テキストの色 */
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;     /* 4px */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    box-sizing: border-box; /* 要素の幅計算にpaddingとborderを含める */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* ファイル選択ボタンのスタイル (Bootstrap 5 のアプローチを参考) */
+.form-group input[type="file"]#voice::file-selector-button {
+    /* inputのpaddingを打ち消して左端に配置 */
+    margin: -0.625rem -0.75rem; /* inputのpadding (top/bottom, left) と同じ値でネガティブマージン */
+    margin-inline-end: 0.75rem; /* ボタンの右側にスペースを確保 (ファイル名との間隔) */
+
+    padding: 0.625rem 1.25rem;  /* ボタン自体のパディング (上下はinputと合わせ、左右は広めに) */
+    color: #fff;                /* ボタンの文字色 */
+    background-color: #0d6efd;  /* Bootstrap primary blue (Google風の青系) */
+    border: none;               /* ボタン自体の枠線はなし */
+    /* border-right: 1px solid #ced4da; */ /* 必要であれば区切り線を追加 */
+    border-radius: 0;           /* ボタン自体の角丸はなし */
+
+    font-weight: 400;
+    font-size: 1rem;            /* ボタンのテキストサイズ (inputと合わせる) */
+    line-height: 1.5;           /* ボタンの高さをinputと合わせる */
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.form-group input[type="file"]#voice::file-selector-button:hover {
+    background-color: #0b5ed7; /* ボタンのホバー時の背景色 (少し濃く) */
+}
+
+/* フォーカス時のスタイル */
+/* :focus-within を使うことで、ボタンがフォーカスされたときもinput全体にスタイルが適用される */
+.form-group input[type="file"]#voice:focus-within {
+    border-color: #86b7fe; /* Bootstrap focus color */
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Bootstrap focus shadow */
+}

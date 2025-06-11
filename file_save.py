@@ -10,13 +10,15 @@ from dotenv import load_dotenv
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
-# .envファイルからGOOGLE_API_KEYを取得
-api_key = os.getenv("GOOGLE_API_KEY")
-if not api_key:
-    raise ValueError("GOOGLE_API_KEYが.envファイルに設定されていません")
-
-# Google Cloud認証情報を設定
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = api_key
+# .envファイルからサービスアカウントキーのパスを取得
+# .envファイルには GOOGLE_APPLICATION_CREDENTIALS="/path/to/your-service-account-key.json" のように記述
+credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+if not credentials_path:
+    raise ValueError("GOOGLE_APPLICATION_CREDENTIALS が .env ファイルに設定されていません。サービスアカウントキーのJSONファイルパスを指定してください。")
+if not os.path.exists(credentials_path):
+    raise FileNotFoundError(f"指定されたサービスアカウントキーファイルが見つかりません: {credentials_path}")
+# load_dotenv() によって環境変数 GOOGLE_APPLICATION_CREDENTIALS が設定されていれば、
+# Google Cloud Client Libraries は自動的にそれを参照します。
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
