@@ -19,11 +19,11 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        <form action="/voice_result" method="post">
+        <form action="/voice_result" method="post" enctype="multipart/form-data">
             <input type="hidden" name="lang" id="selected_lang" value="ja">
             <div class="form-group">
                 <label for="voice">音声ファイルを選択</label>
-                <input type="file" id="voice" name="voice">
+                <input type="file" id="voice" name="voice" accept=".wav,.mp3,.m4a">
             </div>
             <!-- <div class="form-group">
                 <label for="name">お名前を入力:</label>
